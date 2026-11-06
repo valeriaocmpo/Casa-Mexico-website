@@ -2,7 +2,13 @@
 (function () {
   var esc = CM.esc;
   var DIETS = [{ id: 'all', label: 'All' }, { id: 'veg', label: 'Vegetarian' }];
-  var state = { cat: 'tacos', diet: 'all' };
+  /* Opens on Starters. Taco Tuesday links use menu.html?cat=tacos to open on that category. */
+  function startingCategory() {
+    var requested = new URLSearchParams(location.search).get('cat');
+    var isValid = CATS.some(function (c) { return c.id === requested; });
+    return isValid ? requested : 'starters';
+  }
+  var state = { cat: startingCategory(), diet: 'all' };
 
   var els = {
     tabs: document.querySelector('[data-menu-tabs]'),
