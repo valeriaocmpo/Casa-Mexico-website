@@ -1,0 +1,121 @@
+
+/* Casa México components. Values come from tokens.css; only what tokens cannot express lives here. */
+body { margin: 0; background: var(--bg); }
+.cm { font-family: var(--font-body); color: var(--ink); background: var(--bg); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.cm *, .cm *::before, .cm *::after { box-sizing: border-box; }
+.cm :where(a) { color: var(--accent); }
+.cm-pad { padding: 24px; }
+.cm-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.cm-col { display: flex; flex-direction: column; gap: 12px; }
+/* Visually hidden but read by screen readers: section headings, live status messages */
+.cm-sr { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.cm-label { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
+
+/* Icon: Material Symbols Outlined, weight 300, unfilled */
+.ms { font-family: var(--font-icon); font-weight: 300; font-style: normal; font-size: 20px; line-height: 1; letter-spacing: normal; text-transform: none; white-space: nowrap; font-feature-settings: 'liga'; user-select: none; display: inline-block; }
+.ms-16 { font-size: 16px; } .ms-18 { font-size: 18px; } .ms-22 { font-size: 22px; } .ms-28 { font-size: 28px; } .ms-32 { font-size: 32px; }
+
+/* Motion: one ease for everything interactive */
+.cm-btn { transition: transform .5s cubic-bezier(.32,.72,0,1), background-color .4s cubic-bezier(.32,.72,0,1), box-shadow .5s cubic-bezier(.32,.72,0,1), color .4s cubic-bezier(.32,.72,0,1); }
+.cm-btn:hover { transform: translateY(-1px); }
+.cm-btn:active { transform: scale(.98); }
+.cm-btn .cm-ico { transition: transform .5s cubic-bezier(.32,.72,0,1); }
+.cm-btn:hover .cm-ico { transform: translate(2px,-1px) scale(1.06); }
+.cm-link { text-decoration: none; transition: color .3s cubic-bezier(.32,.72,0,1); }
+.cm-link:hover { color: var(--accent) !important; }
+.cm a:focus-visible, .cm button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@keyframes cmUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.cm-reveal { animation: cmUp .9s cubic-bezier(.16,1,.3,1) both; }
+@media (prefers-reduced-motion: reduce) { .cm * { animation: none !important; transition: none !important; } }
+
+/* Buttons — every button has 26px corners */
+.btn { display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; font: inherit; font-weight: 600; font-size: 15px; text-decoration: none; border-radius: var(--radius); padding: 0 20px; min-height: 48px; white-space: nowrap; }
+.btn-primary { gap: 14px; background: var(--accent); color: var(--on-accent); font-size: 16px; padding: 7px 7px 7px 24px; box-shadow: var(--shadow-cta); }
+.btn-primary .cm-ico { width: 40px; height: 40px; border-radius: var(--radius); background: rgba(255,255,255,.18); display: flex; align-items: center; justify-content: center; }
+.btn-call { background: var(--accent); color: var(--on-accent); padding: 0 18px; min-height: 44px; }
+.btn-ink { background: var(--ink); color: var(--bg); }
+.btn-outline { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--edge); }
+.btn-external { background: var(--surface); color: var(--ink); padding: 0 18px; min-height: 46px; box-shadow: inset 0 0 0 1px var(--edge); gap: 6px; }
+.btn-inverse { gap: 12px; background: var(--on-accent); color: var(--accent); padding: 6px 6px 6px 20px; }
+.btn-inverse .cm-ico { width: 36px; height: 36px; border-radius: var(--radius); background: var(--accent-soft); display: flex; align-items: center; justify-content: center; }
+.btn-quiet { background: var(--shell); color: var(--ink); min-height: 44px; padding: 0 12px 0 14px; gap: 6px; }
+.btn-text { background: none; border: none; color: var(--muted); padding: 10px 0; min-height: 44px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.icon-btn { width: 44px; height: 44px; border-radius: var(--radius); border: none; background: var(--shell); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+.social-btn { width: 48px; height: 48px; border-radius: var(--radius); background: var(--surface); box-shadow: inset 0 0 0 1px var(--edge); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; }
+
+/* Mobile buttons (under 768px). The site applies these through its breakpoints; the classes let a preview or a phone-only layout show them directly. */
+.btn-call.is-icon, .btn-quiet.is-compact { gap: 6px; }
+.btn-call.is-icon { width: 44px; padding: 0; justify-content: center; }           /* header call: phone icon only, label kept in aria-label */
+.btn-quiet.is-compact { padding: 0 10px 0 12px; }                                   /* Casa switcher: pin + chevron, name kept in aria-label */
+.btn-block { display: flex; width: 100%; justify-content: center; min-height: 52px; } /* full-width call at the foot of the mobile menu sheet */
+.tabs.is-wrap { flex-wrap: wrap; overflow: visible; gap: 6px; }                     /* menu categories, version A */
+.tabs.is-scroll { flex-wrap: nowrap; overflow-x: auto; gap: 6px; padding: 2px 24px; margin: 0 -24px; scroll-padding-left: 24px; scroll-snap-type: x proximity; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 44px), transparent); mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 44px), transparent); } /* version B */
+@media (max-width: 767px) { .header .btn-call .btn-label, .header .btn-quiet .btn-label { display: none; } .header .btn-call { width: 44px; padding: 0; justify-content: center; } .header .btn-quiet { padding: 0 10px 0 12px; } }
+
+/* Double-bezel card: 6px shell (radius-outer) around a 26px surface (radius) */
+.shell { padding: var(--space-6); border-radius: var(--radius-outer); background: var(--shell); box-shadow: var(--shadow-shell); }
+.shell.is-selected { box-shadow: var(--shadow-selected); }
+.shell.is-raised { box-shadow: var(--shadow-shell), var(--shadow-cta); }
+.face { background: var(--surface); border-radius: var(--radius); box-shadow: inset 0 1px 0 rgba(255,255,255,.12); height: 100%; padding: var(--space-28); display: flex; flex-direction: column; gap: 10px; }
+.photo { display: block; width: 100%; object-fit: cover; border-radius: var(--radius); background: var(--photo); }
+
+/* Headings */
+.h-display { margin: 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1; text-wrap: balance; }
+.h { margin: 0; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+.eyebrow { font-weight: 600; font-size: 15px; color: var(--accent); }
+.muted { color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Badges and tags */
+.badge { display: inline-block; color: var(--accent); font-weight: 600; font-size: 13px; box-shadow: inset 0 0 0 1px var(--accent); border-radius: var(--radius); padding: 3px 8px; line-height: 1.4; }
+.tag { display: inline-block; color: var(--muted); font-weight: 500; font-size: 13px; box-shadow: inset 0 0 0 1px var(--line); border-radius: var(--radius); padding: 2px 8px; line-height: 1.4; }
+.fav { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); font-weight: 600; font-size: 13px; }
+
+/* Header */
+.header { max-width: var(--container); margin: 0 auto; background: var(--nav); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); border-radius: var(--radius); box-shadow: var(--shadow-nav); padding: 8px 8px 8px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: var(--nav-height); }
+.nav { display: flex; align-items: center; gap: var(--space-2); }
+.nav a { padding: 10px 14px; border-radius: var(--radius); color: var(--ink); font-weight: 500; }
+.nav a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+
+/* Segmented switch, tabs, filters: toggle buttons (aria-pressed) in a labelled role="group" */
+.segment { display: inline-flex; gap: var(--space-2); background: var(--surface); box-shadow: inset 0 0 0 1px var(--ring); border-radius: var(--radius); padding: 4px; }
+.segment button { border: none; cursor: pointer; font: inherit; font-weight: 600; font-size: 15px; padding: 10px 18px; min-height: 44px; border-radius: var(--radius); background: transparent; color: var(--ink); }
+.segment button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+/* Menu toolbar: no bar of its own. Category buttons on one row, the dietary filter track below, both left-aligned; sticky at 92px on desktop. */
+.toolbar { position: sticky; top: 92px; z-index: 10; padding: 6px 0; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-12); }
+.tabs { display: flex; gap: var(--space-8); overflow-x: auto; scrollbar-width: none; width: 100%; max-width: 100%; }
+.tabs button { flex: 0 0 auto; border: none; cursor: pointer; font: inherit; font-weight: 600; font-size: 15px; padding: 10px 16px; min-height: 44px; border-radius: var(--radius); white-space: nowrap; background: var(--nav); color: var(--ink); box-shadow: inset 0 0 0 1px var(--edge); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.tabs button[aria-pressed="true"] { background: var(--ink); color: var(--bg); box-shadow: none; }
+.filters { display: inline-flex; flex-wrap: wrap; gap: var(--space-2); padding: 4px; border-radius: var(--radius); background: var(--nav); box-shadow: inset 0 0 0 1px var(--ring); max-width: 100%; }
+.filters button { border: none; cursor: pointer; font: inherit; font-weight: 600; font-size: 14px; padding: 10px 14px; min-height: 44px; border-radius: var(--radius); white-space: nowrap; background: transparent; color: var(--ink); }
+.filters button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); box-shadow: inset 0 0 0 1.5px var(--accent); }
+
+/* Casa picker option: a toggle button (aria-pressed) */
+.option { display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 14px; border: none; border-radius: var(--radius); cursor: pointer; font: inherit; color: var(--ink); text-align: left; min-height: 64px; background: transparent; box-shadow: inset 0 0 0 1px var(--ring); }
+.option[aria-pressed="true"] { background: var(--accent-soft); box-shadow: var(--shadow-selected); }
+.option .dot { flex: 0 0 auto; width: 18px; height: 18px; border-radius: var(--radius-round); background: var(--surface); border: 1.5px solid var(--muted); }
+.option[aria-pressed="true"] .dot { border: 5.5px solid var(--accent); }
+.option .name { font-family: var(--font-display); font-weight: 700; font-size: 19px; line-height: 1.15; display: block; }
+.option .street { font-size: 14px; color: var(--muted); display: block; }
+.option .today { font-size: 14px; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* Menu item with dotted leader */
+.item-head { display: flex; align-items: baseline; gap: 12px; }
+.item-head h3 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; }
+.leader { flex: 1 1 24px; border-bottom: 2px dotted var(--line); transform: translateY(-5px); }
+.item-price { font-weight: 600; font-size: 16px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.item-desc { margin: 6px 0 0; color: var(--muted); font-size: 15px; max-width: 54ch; text-wrap: pretty; }
+.item-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-top: 10px; font-size: 13px; }
+
+/* Good-to-know row */
+.info-row { display: flex; align-items: flex-start; gap: 16px; padding: 18px 20px; border-radius: var(--radius); background: var(--surface); box-shadow: inset 0 0 0 1px var(--ring); }
+.info-tile { width: 44px; height: 44px; flex: 0 0 auto; border-radius: var(--radius); background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; }
+
+/* Breadcrumb */
+.crumbs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; font-size: 14px; color: var(--muted); }
+.crumbs li { display: flex; align-items: center; gap: 6px; }
+.crumbs a { color: var(--muted); padding: 6px 0; }
+.crumbs [aria-current="page"] { color: var(--accent); font-weight: 600; }
+
+/* Mobile (under 768px): the toolbar stops sticking and category buttons wrap (version A; use .tabs.is-scroll for version B) */
+@media (max-width: 767px) { .toolbar { position: static; } .tabs { flex-wrap: wrap; overflow: visible; } }

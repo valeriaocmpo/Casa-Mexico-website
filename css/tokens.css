@@ -1,0 +1,210 @@
+/* Casa México — generated from tokens.json */
+:root, [data-theme="light"] {
+  --bg: #f4f3ef; /* Page background: warm paper. Default ground for every page, the header strip and the footer. */
+  --bg2: #eceae4; /* Alternate section band: the locations band on Home, page headers on Menu, and the lower band on Locations, Reservations and Our story. Separates sections without rules. */
+  --surface: #ffffff; /* Inner face of every card, the Casa picker popover, menu-switch track and good-to-know rows. */
+  --shell: rgba(18,18,16,0.045); /* Outer bezel of the double-bezel card (6px padding around the surface) and the quiet fill of the Casa button and hamburger. */
+  --ring: rgba(18,18,16,0.08); /* 1px inset hairline around shells, rows, the header bar, unselected Casa options and the footer top edge. Decorative only, never the sole boundary of a control (unselected Casa options are identified by their muted radio dot). */
+  --ink: #121210; /* Primary text and icons on bg, bg2 and surface (16.9:1 on bg). Also the fill of the secondary solid button and the active category tab. */
+  --muted: #5a5853; /* Secondary text: leads, descriptions, addresses, breadcrumbs, footer links. On bg (6.4:1), bg2 (5.9:1) and surface (7.1:1). */
+  --line: rgba(18,18,16,0.14); /* Decorative only: the 2px dotted price leader and the outline of dietary tags (whose words carry the meaning). About 1.3:1 on bg, so never use it as the edge of a control; use edge. */
+  --edge: #6c6963; /* Visible outline of controls that have no fill: outline buttons (1.5px), delivery and other external buttons, social buttons and the mobile category tabs (1px). 3.5:1 on bg, 3.2:1 on bg2, 3.8:1 on surface, meeting the 3:1 non-text contrast floor. */
+  --accent: #a8352a; /* Chile red, darkened from #b23a2e in the 3 Nov accessibility pass. Primary call to action fill, current nav item, links, eyebrows, 'Your Casa' badge, focus ring, the Taco Tuesday promo. As text on bg (5.9:1), bg2 (5.4:1) and surface (6.6:1). */
+  --on-accent: #ffffff; /* Text and icons on an accent fill (6.6:1). Also the fill of the inverse button inside the accent promo card. */
+  --accent-soft: rgba(168,53,42,0.08); /* Tint behind accent text: promotion bar, selected Casa option, current nav item, selected dietary filter, icon tiles. Accent text on it holds 4.9:1 over bg2 and 5.2:1 over bg. */
+  --photo: #e2e0d9; /* Placeholder fill behind every photo while it loads. */
+  --nav: rgba(255,255,255,0.72); /* Frosted fill of the floating header bar, mobile menu sheet and sticky menu toolbar; always with a 20px backdrop blur. */
+  --photo-dark: #1c1c19; /* Ground of photo cards before the image paints, and the dark end of their scrim. */
+  --on-photo-eyebrow: #7f5b53; /* Eyebrow (date and place) on a photo card, over the dark scrim only. */
+  --logo-chile: #ea0008; /* The chile in the logo. Logo artwork only; never use it for UI, use accent. */
+  --logo-green: #005129; /* The script wordmark in the logo. Logo artwork only; the site has no green UI. */
+  --shadow-cta: 0 30px 60px -36px rgba(110,32,22,0.35); /* Primary accent button and featured cards (the overlapping Casa picker): a warm red-brown drop. */
+  --shadow-nav: 0 0 0 1px rgba(18,18,16,0.08), 0 12px 32px -20px rgba(18,18,16,0.35); /* Floating header bar. */
+  --shadow-popover: 0 0 0 1px rgba(18,18,16,0.08), 0 24px 48px -24px rgba(18,18,16,0.4); /* Casa picker popover and mobile menu sheet. */
+  --shadow-shell: inset 0 0 0 1px rgba(18,18,16,0.08); /* Hairline on a card's outer shell. */
+  --shadow-selected: inset 0 0 0 1.5px #a8352a; /* Selected Casa option and the selected location card's shell. */
+}
+:root {
+  --space-2: 2px; /* Gap between nav links, tabs and segmented options. */
+  --space-6: 6px; /* The bezel: shell padding around a card's surface; gap between picker options. */
+  --space-8: 8px; /* Gap between buttons in a group; icon-to-label gap. */
+  --space-12: 12px; /* Gap between hero buttons; header padding from the viewport. */
+  --space-16: 16px; /* Gap between cards in a grid. */
+  --space-24: 24px; /* Page gutter (left and right of the 1200px container). */
+  --space-28: 28px; /* Card padding (30px on location and contact cards, 36px on the promo card). */
+  --space-40: 40px; /* Gap between a section title and its content. */
+  --space-56: 56px; /* Top padding of an inner page header; gap between hero columns. */
+  --space-72: 72px; /* Column gap between two-up menu items and story columns. */
+  --space-112: 112px; /* Vertical padding of a standard section (bottom 120px). */
+  --space-128: 128px; /* Vertical padding of the events section and the menu list bottom. */
+  --radius: 26px; /* Every corner on the site: buttons, the header bar, nav links, tabs, filters, the segmented switch, badges and tags, Casa picker options, good-to-know rows and their icon tiles, the picker popover, mobile menu sheet, sticky menu toolbar, the inner face of every card and every photo. On controls shorter than 52px it renders as a full pill. */
+  --radius-outer: 32px; /* Outer shell of a double-bezel card only (26px inner face + the 6px bezel). */
+  --radius-round: 50%; /* The radio dot in a Casa picker option; nothing else. */
+  --container: 1200px; /* Max width of header, sections and footer. */
+  --measure: 52ch; /* Max line length of leads and story paragraphs. */
+  --touch-target: 44px; /* Minimum height of every control (buttons are 46-52px). */
+  --nav-height: 64px; /* Header bar minimum height; the sticky menu toolbar sits 92px from the top. */
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Instrument Sans", system-ui, sans-serif;
+  --font-icon: "Material Symbols Outlined";
+  --text-price-hero: 800 168px/0.85 var(--font-display); /* One oversized price inside the accent promo card. clamp(96px, 13vw, 168px). */
+  --text-display-page: 800 76px/1 var(--font-display); /* H1 of inner pages (Menu, Locations, Reservations, Our story). clamp(44px, 5.4vw, 76px), text-wrap balance. */
+  --text-display-hero: 800 70px/1.02 var(--font-display); /* Home H1 only. clamp(44px, 4.8vw, 70px). */
+  --text-section-title: 800 52px/1.02 var(--font-display); /* H2 that opens a section. clamp(32px, 3.8vw, 52px). */
+  --text-location-name: 800 48px/0.95 var(--font-display); /* The Casa's name on location and reservation cards (40px, lh 1, on Home). */
+  --text-statement: 700 46px/1.1 var(--font-display); /* Long editorial headline on Our story. clamp(30px, 3.4vw, 46px), text-wrap pretty. */
+  --text-promo-title: 700 36px/1.1 var(--font-display); /* Title under the oversized price in the promo card. */
+  --text-card-title-lg: 700 30px/1.15 var(--font-display); /* Event cards and the groups-and-events panel. */
+  --text-mobile-nav: 700 28px/1.2 var(--font-display); /* Links in the mobile menu sheet. */
+  --text-card-title: 700 26px/1.15 var(--font-display); /* Contact cards (Our story) and the groups-and-events panel (30px there). */
+  --text-panel-title: 700 22px/1.2 var(--font-display); /* Title of the Casa picker panel. */
+  --text-item-title: 700 20px/1.25 var(--font-display); /* Menu item names and good-to-know row titles. */
+  --text-option-name: 700 19px/1.15 var(--font-display); /* Casa name inside a picker option. */
+  --text-lead: 400 19px/1.55 var(--font-body); /* Paragraph under an H1, in muted, max 52ch. */
+  --text-body-lg: 400 17px/1.55 var(--font-body); /* Section intros, story paragraphs, promo copy. */
+  --text-body: 400 16px/1.55 var(--font-body); /* Default text; card addresses and footer lines. */
+  --text-label: 600 15px/1.4 var(--font-body); /* Buttons, nav links, eyebrows, today's hours. Descriptions at 15px use weight 400. */
+  --text-small: 400 14px/1.45 var(--font-body); /* Breadcrumbs, picker addresses, legal line, footnotes. Weight 600 for the 'Showing the menu for' label and 'today' times. */
+  --text-tag: 600 13px/1.4 var(--font-body); /* Badges and dietary tags (dietary tags use weight 500). */
+  --text-price: 600 16px/1.4 var(--font-body); /* Every price and phone number: font-variant-numeric tabular-nums. */
+}
+.price-hero {
+  font-family: var(--font-display);
+  font-size: 168px;
+  line-height: 0.85;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+.display-page {
+  font-family: var(--font-display);
+  font-size: 76px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.display-hero {
+  font-family: var(--font-display);
+  font-size: 70px;
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.location-name {
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.statement {
+  font-family: var(--font-display);
+  font-size: 46px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.promo-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.card-title-lg {
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.mobile-nav {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.card-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.panel-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.item-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.option-name {
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.lead {
+  font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body-lg {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.label {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.small {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.tag {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.price {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0;
+}
